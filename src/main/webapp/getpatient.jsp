@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html> 
-<html> 
+<html lang="en"> 
 <head> 
 <meta charset="ISO-8859-1"> 
 <title>Patient Page</title> 
@@ -34,39 +34,41 @@ div.dimen {
     <a href="home" style="margin-right: 40px;">${dashboard}</a> 
     <a href="patients">${patients}</a><br> 
      
-    <input type="button" id="Back" value="BACK" style="float: left;" onclick="window.location.href='patients'"><br> 
-    <h3 align="center"><strong>Patient - ${patient.getName()}</strong></h3> 
+    <input type="button" id="back" value="BACK" style="float: left;" onclick="window.location.href='patients'"><br> 
+    <h3><strong>Patient - ${patient.getName()}</strong></h3> 
      
     <table style="float: center; text-align: center;"> 
-        <tr> 
-            <td><label>Name</label></td> 
+     <caption> </caption>
+        <th scope="row"> 
+            <td><label id="name">Name</label></td> 
             <td>${patient.getName()}</td> 
-        </tr> 
+        </th> 
         <tr> 
-            <td><label>Birth</label></td> 
+            <td><label id="birth">Birth</label></td> 
             <td>${patient.getBirth()}</td> 
         </tr> 
         <tr> 
-            <td><label>Age</label></td> 
+            <td><label id="age">Age</label></td> 
             <td>${patientAge}</td> 
         </tr> 
         <tr> 
-            <td><label>Document</label></td> 
+            <td><label id="document">Document</label></td> 
             <td id="docs">${patient.getDocument()}</td> 
         </tr> 
     </table> 
      
     <div style="float: center;"> 
              
-        <input type="button" id="addApplication" name="addvaccine" value="ADD VACCINE"  onclick="window.location.href='http://localhost:8080/vaccine'"> 
+        <input type="button" id="addApplication" value="ADD VACCINE"  onclick="window.location.href='http://localhost:8080/vaccine'"> 
     </div> 
    
      
     <div style="text-align: center;"> 
         <h3><strong>Vaccine History</strong></h3> 
          
-        <table style="float: center; text-align: center;"> 
-            <th> 
+        <table  style="float: center; text-align: center;"> 
+         <caption> </caption>
+            <th scope="col"> 
                 <td><label>Vaccine</label></td> 
                 <td><label>Age</label></td> 
             </th>

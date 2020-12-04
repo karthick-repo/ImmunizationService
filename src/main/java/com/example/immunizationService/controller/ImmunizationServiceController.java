@@ -18,6 +18,7 @@ import com.example.immunizationService.model.PatientsDB;
 import com.example.immunizationService.model.VaccineDB;
 import com.sun.el.parser.ParseException;
 
+
 @Controller
 public class ImmunizationServiceController {
 	@Autowired
@@ -26,19 +27,20 @@ public class ImmunizationServiceController {
 	@Autowired
 	VaccineRepo vaccineRepo;
 
-	public int searchId;
+	private static int searchId;
 	private static final String TITLE = "Immunization Service";
 	private static final String DASHBOARD = "Dashboard";
 	private static final String PATIENTS = "Patients";
+	private static final String TITLEOBJ = "title";
 
 	
 	@RequestMapping("/home")
 	public ModelAndView dashboard() {
 		ModelAndView mv = new ModelAndView();
 		List<PatientsDB> patientlist = patientRepo.findAll();
-		mv.addObject("title", TITLE);
-		mv.addObject("dashboard", DASHBOARD);
-		mv.addObject("patients", PATIENTS);
+		mv.addObject(TITLEOBJ, TITLE);
+		mv.addObject(DASHBOARD, DASHBOARD);
+		mv.addObject(PATIENTS, PATIENTS);
 		mv.addObject("data", patientlist);
 		mv.addObject("k", 3);
 
@@ -50,10 +52,9 @@ public class ImmunizationServiceController {
 	public ModelAndView showPatients() {
 		ModelAndView mv = new ModelAndView();
 		List<PatientsDB> list = patientRepo.findAll();
-		//List<VaccineDB> vaccine = vaccineRepo.findAll();
-		mv.addObject("title", TITLE);
-		mv.addObject("dashboard", DASHBOARD);
-		mv.addObject("patients", PATIENTS);
+		mv.addObject(TITLEOBJ, TITLE);
+		mv.addObject(DASHBOARD, DASHBOARD);
+		mv.addObject(DASHBOARD, PATIENTS);
 		mv.addObject("details", list);
 		mv.addObject("toppatients", patientRepo.findAll());
 		mv.addObject("topvaccines", vaccineRepo.findAll());
@@ -65,16 +66,16 @@ public class ImmunizationServiceController {
 	public ModelAndView patientPage(@RequestParam("documentSearch") int document) {
 		ModelAndView mv = new ModelAndView();
 		searchId = document;
-		mv.addObject("title", TITLE);
-		mv.addObject("dashboard", DASHBOARD);
-		mv.addObject("patients", PATIENTS);
+		mv.addObject(TITLEOBJ, TITLE);
+		mv.addObject(DASHBOARD, DASHBOARD);
+		mv.addObject(PATIENTS, PATIENTS);
 		PatientsDB patient = patientRepo.findById(document).orElse(new PatientsDB());
 		mv.addObject("document", patient.getDocument());
 		mv.addObject("patient", patient);
 		mv.addObject("topvaccines", vaccineRepo.findAllUsersbyid(document));
 		mv.setViewName("getpatient");
 
-		// DISPLAY AGE FROM DATE
+		// DISPLAY AGE FROM DATE 
 
 		Date d = patientRepo.datefindDateForUser(document);
 		LocalDate now = LocalDate.now();
@@ -94,9 +95,9 @@ public class ImmunizationServiceController {
 	public ModelAndView addPatient() {
 
 		ModelAndView mv2 = new ModelAndView();
-		mv2.addObject("title", TITLE);
-		mv2.addObject("dashboard", DASHBOARD);
-		mv2.addObject("patients", PATIENTS);
+		mv2.addObject(TITLEOBJ, TITLE);
+		mv2.addObject(DASHBOARD, DASHBOARD);
+		mv2.addObject(PATIENTS, PATIENTS);
 		mv2.setViewName("addpatient");
 
 		return mv2;
@@ -113,8 +114,8 @@ public class ImmunizationServiceController {
 		}
 		patientRepo.save(patient);
 		mv1.setViewName("addpatient");
-		mv1.addObject("dashboard", DASHBOARD);
-		mv1.addObject("patients", PATIENTS);
+		mv1.addObject(DASHBOARD, DASHBOARD);
+		mv1.addObject(PATIENTS, PATIENTS);
 
 		return mv1;
 	}
@@ -124,7 +125,6 @@ public class ImmunizationServiceController {
 		ModelAndView mv = new ModelAndView();
 
 		vaccineRepo.save(vaccineDB);
-		System.out.println("check : " + vaccineDB.getVaccine() + vaccineDB.getDocument());
 		updatePatient(vaccineDB.getVaccine(), vaccineDB.getDocument());
 		mv.setViewName("vaccine");
 		return mv;
@@ -134,9 +134,9 @@ public class ImmunizationServiceController {
 	public ModelAndView updateVaccine() throws ParseException {
 		ModelAndView mv = new ModelAndView();
 
-		mv.addObject("title", TITLE);
-		mv.addObject("dashboard", DASHBOARD);
-		mv.addObject("patients", PATIENTS);
+		mv.addObject(TITLEOBJ, TITLE);
+		mv.addObject(DASHBOARD, DASHBOARD);
+		mv.addObject(DASHBOARD, PATIENTS);
 		mv.addObject("searchId", searchId);
 		mv.setViewName("vaccine");
 

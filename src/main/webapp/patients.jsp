@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html> 
-<html> 
+<html lang="en"> 
 <head> 
 <meta charset="ISO-8859-1"> 
 <title>Patients</title> 
@@ -36,7 +36,7 @@ div.dimen {
         <hr> 
         <a href="home" id="dashboard" style="margin-right: 40px;">${dashboard}</a> 
         <a href="patients" id="pateints">${patients}</a> 
-        <h1><strong><label id="patientlist">Patient List</label></strong></h1> 
+        <h1><strong><label id="patientList">Patient List</label></strong></h1> 
          
         <form action="getpatient"> 
             <input type="number" required="required" value="document" id="documentSearch" name="documentSearch"> 
@@ -47,15 +47,16 @@ div.dimen {
             onclick="window.location.href='addpatient'"><br> 
         
         <table> 
+         <caption> </caption>
             <c:if test="${empty toppatients}"> 
                 </br><label id="message">There are no patients</label> 
             </c:if>
   
             <c:if test="${not empty toppatients}"> 
-                    <th>NAME</th> 
-                    <th>AGE</th> 
-                    <th>DOCUMENT</th> 
-                    <th>VACCINE</th> 
+                    <th scope="col">NAME</th> 
+                    <th scope="col">AGE</th> 
+                    <th scope="col">DOCUMENT</th> 
+                    <th scope="col">VACCINE</th> 
                     
                 <c:forEach items='${toppatients}' var="data" varStatus="count">                                     
                     <tr> 

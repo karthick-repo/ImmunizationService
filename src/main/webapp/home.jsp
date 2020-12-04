@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html> 
 
-<html> 
+<html lang="en"> 
 <head>
 <meta charset="ISO-8859-1"> 
 <title>Home</title> 
@@ -37,19 +37,20 @@ div.dimen {
         <a href="patients">Patients</a>
 
 		<table> 
+		 <caption> </caption>
             <c:if test="${empty data}" > 
                 </br><label id="message">There are no patients</label> 
             </c:if>
   
             <c:if test="${not empty data}"> 
-                    <th>NAME</th> 
-                    <th>AGE</th> 
-                    <th>DOCUMENT</th> 
-                    <th>VACCINE</th> 
+                    <th scope="col">NAME</th> 
+                    <th scope="col">AGE</th> 
+                    <th scope="col">DOCUMENT</th> 
+                    <th scope="col">VACCINE</th> 
                     
                 <c:forEach items='${data}' var="dt" varStatus="count">                                     
                     <tr> 
-                        <td id="name${count.count}">${dt.name}</td> 
+                        <td id="name1${count.count}">${dt.name}</td> 
                         <td id="birth${count.count}">${dt.birth}</td> 
                         <td id="document${count.count}">${dt.document}</td> 
                         <td id="vaccine${count.count}">${dt.vaccine}</td> 

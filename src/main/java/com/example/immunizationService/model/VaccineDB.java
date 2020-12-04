@@ -11,8 +11,6 @@ import javax.persistence.Table;
 @Table(name = "vaccinedb")
 public class VaccineDB { 
 
-//    PatientRepo patientRepo; 
-     
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sno")
