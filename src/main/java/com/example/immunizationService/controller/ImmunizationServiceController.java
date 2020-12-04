@@ -50,7 +50,7 @@ public class ImmunizationServiceController {
 	public ModelAndView showPatients() {
 		ModelAndView mv = new ModelAndView();
 		List<PatientsDB> list = patientRepo.findAll();
-		List<VaccineDB> vaccine = vaccineRepo.findAll();
+		//List<VaccineDB> vaccine = vaccineRepo.findAll();
 		mv.addObject("title", TITLE);
 		mv.addObject("dashboard", DASHBOARD);
 		mv.addObject("patients", PATIENTS);
