@@ -38,7 +38,7 @@ div.dimen {
         <a href="patients" id="pateints">${patients}</a> 
         <h1><strong><label id="patientList">Patient List</label></strong></h1> 
          
-        <form action="getpatient"> 
+        <form action="getpatient" method="post"> 
             <input type="number" required="required" value="document" id="documentSearch" name="documentSearch"> 
             <input type="submit" id="search" value="SEARCH"> 
         </form> 

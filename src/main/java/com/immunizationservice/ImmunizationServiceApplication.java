@@ -1,4 +1,4 @@
-package com.example.immunizationService;
+package com.immunizationservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

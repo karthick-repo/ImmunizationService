@@ -1,17 +1,20 @@
-package com.example.immunizationService.exception;
+package com.immunizationservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(value = HttpStatus.CONFLICT)
-public class DuplicateException extends RuntimeException{
+@ResponseStatus(value = HttpStatus.NOT_FOUND)
+public class ResourceNotFoundException extends RuntimeException {
+    /**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	private final String resourceName;
     private final String fieldName;
-    private final transient Object fieldValue;
+    private final Object fieldValue;
 
-    public DuplicateException( String resourceName, String fieldName, int fieldValue) {
-        super(String.format("%s Duplicate account with %s : '%d'", resourceName, fieldName, fieldValue));
+    public ResourceNotFoundException( String resourceName, String fieldName, int fieldValue) {
+        super(String.format("%s not found with %s : '%d'", resourceName, fieldName, fieldValue));
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;

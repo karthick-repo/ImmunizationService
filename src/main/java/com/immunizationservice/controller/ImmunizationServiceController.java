@@ -1,6 +1,7 @@
-package com.example.immunizationService.controller;
+package com.immunizationservice.controller;
 
 import java.sql.Date;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
@@ -11,12 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.immunizationService.dao.PatientRepo;
-import com.example.immunizationService.dao.VaccineRepo;
-import com.example.immunizationService.exception.DuplicateException;
-import com.example.immunizationService.model.PatientsDB;
-import com.example.immunizationService.model.VaccineDB;
-import com.sun.el.parser.ParseException;
+import com.immunizationservice.dao.PatientRepo;
+import com.immunizationservice.dao.VaccineRepo;
+import com.immunizationservice.exception.DuplicateException;
+import com.immunizationservice.model.PatientsDB;
+import com.immunizationservice.model.VaccineDB;
 
 
 @Controller
@@ -120,7 +120,7 @@ public class ImmunizationServiceController {
 		return mv1;
 	}
 
-	@RequestMapping("/addvaccine")
+	@RequestMapping("patient/addapplications")
 	public ModelAndView vaccine(VaccineDB vaccineDB) {
 		ModelAndView mv = new ModelAndView();
 

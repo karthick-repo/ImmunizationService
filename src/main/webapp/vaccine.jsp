@@ -34,9 +34,9 @@ div.dimen {
         <a href="home" id="dashboard" style="margin-right: 40px;">${dashboard}</a> 
         <a href="patients" id="pateints">${patients}</a><br> 
          
-    <input type="button" id="Back" value="BACK" style="float: left;" onclick="window.location.href='patients'"><br> 
+    <input type="button" id="Back" value="BACK" style="float: left;" onclick="window.location.href='/patients'"><br> 
      
-    <form action="addvaccine"> 
+    <form action="patient/addapplications" method="POST"> 
     <input type = "hidden" id="document" name="document" value=${searchId}>
     Vaccine:  
         <select id="vaccine" name="vaccine"> 

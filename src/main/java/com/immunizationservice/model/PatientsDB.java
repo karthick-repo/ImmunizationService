@@ -1,4 +1,4 @@
-package com.example.immunizationService.model;
+package com.immunizationservice.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
