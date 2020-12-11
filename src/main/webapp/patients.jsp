@@ -29,13 +29,12 @@ div.dimen {
 <script type="text/javascript" src="/jfn.js"></script>
  
 </head> 
-  
 <body> 
     <div class="dimen"> 
         <h1><label>${title}</label></h1> 
         <hr> 
-        <a href="home" id="dashboard" style="margin-right: 40px;">${dashboard}</a> 
-        <a href="patients" id="pateints">${patients}</a> 
+        <a href="home" style="margin-right: 40px;">Dashboard</a> 
+        <a href="patients">Patients</a>
         <h1><strong><label id="patientList">Patient List</label></strong></h1> 
          
         <form action="getpatient" method="post"> 

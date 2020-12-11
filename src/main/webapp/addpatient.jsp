@@ -38,10 +38,11 @@ tr, td {
 			<label id="title">${title}</label>
 		</h1>
 		<hr>
-		<a href="home" style="margin-right: 40px;">${dashboard}</a> <a
-			href="patients">${patients}</a><br> <input type="button"
+		<a href="home" style="margin-right: 40px;">Dashboard</a> 
+        <a href="patients">Patients</a><br> <input type="button"
 			id="Back" value="BACK" style="float: left;"
-			onclick="window.location.href='patients'"><br>
+			onclick="window.location.href='patients'">
+			<br>
 		<h3>
 			<strong><label>Add Patient</label></strong>
 		</h3>

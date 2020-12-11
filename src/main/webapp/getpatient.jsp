@@ -26,23 +26,24 @@ div.dimen {
 } 
 </style> 
   
-</head> 
-<body> 
+</head>
+<body onload="window.history.go(0)"> 
     <div class="dimen"> 
     <h1><label id="title">${title}</label></h1> 
     <hr> 
-    <a href="home" style="margin-right: 40px;">${dashboard}</a> 
-    <a href="patients">${patients}</a><br> 
+    <a href="home" style="margin-right: 40px;">Dashboard</a> 
+    <a href="patients">Patients</a>
+        <br> 
      
     <input type="button" id="back" value="BACK" style="float: left;" onclick="window.location.href='patients'"><br> 
     <h3><strong>Patient - ${patient.getName()}</strong></h3> 
      
     <table style="float: center; text-align: center;"> 
      <caption> </caption>
-        <th scope="row"> 
+        <tr scope="row"> 
             <td><label id="name">Name</label></td> 
             <td>${patient.getName()}</td> 
-        </th> 
+        </tr> 
         <tr> 
             <td><label id="birth">Birth</label></td> 
             <td>${patient.getBirth()}</td> 
@@ -59,7 +60,7 @@ div.dimen {
      
     <div style="float: center;"> 
              
-        <input type="button" id="addApplication" value="ADD VACCINE"  onclick="window.location.href='http://localhost:8080/vaccine'"> 
+        <input type="button" id="addApplication" value="ADD VACCINE"  onclick="window.location.href='vaccine'"> 
     </div> 
    
      
@@ -88,7 +89,7 @@ div.dimen {
             var doc = document.getElementById("docs"); 
             session.setAttribute("doc", doc);
             return doc; 
-        }  
+        }        
              
     </script>     
   

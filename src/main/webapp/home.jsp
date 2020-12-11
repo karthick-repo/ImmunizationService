@@ -28,7 +28,6 @@ div.dimen {
 } 
 </style> 
 </head> 
-  
 <body> 
     <div class="dimen"> 
         

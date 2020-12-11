@@ -27,7 +27,7 @@ public class ImmunizationServiceController {
 	@Autowired
 	VaccineRepo vaccineRepo;
 
-	private static int searchId;
+	private int searchId;
 	private static final String TITLE = "Immunization Service";
 	private static final String DASHBOARD = "Dashboard";
 	private static final String PATIENTS = "Patients";
@@ -49,7 +49,7 @@ public class ImmunizationServiceController {
 	}
 
 	@RequestMapping("/patients")
-	public ModelAndView showPatients() {
+	public ModelAndView showPatients() { 
 		ModelAndView mv = new ModelAndView();
 		List<PatientsDB> list = patientRepo.findAll();
 		mv.addObject(TITLEOBJ, TITLE);
@@ -102,7 +102,7 @@ public class ImmunizationServiceController {
 
 		return mv2;
 	}
-
+ 
 	@RequestMapping("/addpatients")
 	public ModelAndView savePatient(PatientsDB patient) {
 		ModelAndView mv1 = new ModelAndView("patients");
@@ -120,7 +120,7 @@ public class ImmunizationServiceController {
 		return mv1;
 	}
 
-	@RequestMapping("patient/addapplications")
+	@RequestMapping("patient/addapplications") 
 	public ModelAndView vaccine(VaccineDB vaccineDB) {
 		ModelAndView mv = new ModelAndView();
 
@@ -131,7 +131,8 @@ public class ImmunizationServiceController {
 	}
 
 	@RequestMapping("/vaccine")
-	public ModelAndView updateVaccine() throws ParseException {
+	public ModelAndView updateVaccine()  {
+//		throws ParseException
 		ModelAndView mv = new ModelAndView();
 
 		mv.addObject(TITLEOBJ, TITLE);

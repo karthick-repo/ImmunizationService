@@ -59,13 +59,19 @@ class ImmunizationServiceApplicationTests {
 
 	@Test
 	 void testaddVAccine() {
-		int id = 1;
-		restTemplate.put(getRootUrl() + "/patients/addApplication/" + id, new Double(100));
+		int id = 101;
 		VaccineDB vaccine = new VaccineDB();
+		vaccine.setDocument(id);
 		vaccine.setVaccine("BCG");
-		ResponseEntity<PatientsDB> postResponse = restTemplate.postForEntity(getRootUrl() + "/addPatient", vaccine, PatientsDB.class);
+		ResponseEntity<VaccineDB> postResponse = restTemplate.postForEntity(getRootUrl() + "/addPatient", vaccine, VaccineDB.class);
 		Assert.assertNotNull(postResponse);
 		Assert.assertNotNull(postResponse.getBody());
+		
+		restTemplate.put(getRootUrl() + "/addpatients/" + id, vaccine);
+		PatientsDB updatedPatient = restTemplate.getForObject(getRootUrl() + "/addpatients/" + id, PatientsDB.class);
+		Assert.assertNotNull(updatedPatient);
+		
+		
 	}
 	
 }

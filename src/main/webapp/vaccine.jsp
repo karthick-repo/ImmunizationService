@@ -31,10 +31,10 @@ div.dimen {
     <div class="dimen"> 
         <h1><label>Add Vaccine</label></h1> 
         <hr> 
-        <a href="home" id="dashboard" style="margin-right: 40px;">${dashboard}</a> 
-        <a href="patients" id="pateints">${patients}</a><br> 
+        <a href="home" id="dashboard" style="margin-right: 40px;">Dashboard</a>
+        <a href="patients" id="pateints">Patients</a><br> 
          
-    <input type="button" id="Back" value="BACK" style="float: left;" onclick="window.location.href='/patients'"><br> 
+    <input type="button" id="Back" value="BACK" style="float: left;" onclick="window.history.go(-2)"><br> 
      
     <form action="patient/addapplications" method="POST"> 
     <input type = "hidden" id="document" name="document" value=${searchId}>
@@ -56,6 +56,13 @@ div.dimen {
         <input type="submit" id="submit" name="submit" value="APPLY"> 
     </form> 
     </div> 
-   
+
+<script>
+
+function myFunction() {
+	window.history.go(-1);
+	window.location.href='patients';
+}
+</script>
 </body> 
 </html> 
