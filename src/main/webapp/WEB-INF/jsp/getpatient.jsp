@@ -27,7 +27,7 @@ div.dimen {
 </style> 
   
 </head>
-<body onload="window.history.go(0)"> 
+<body > 
     <div class="dimen"> 
     <h1><label id="title">${title}</label></h1> 
     <hr> 
@@ -41,8 +41,8 @@ div.dimen {
     <table style="float: center; text-align: center;"> 
      <caption> </caption>
         <tr scope="row"> 
-            <td><label id="name">Name</label></td> 
-            <td>${patient.getName()}</td> 
+            <th scope="column"><label id="name">Name</label></th> 
+            <th scope="column">${patient.getName()}</th> 
         </tr> 
         <tr> 
             <td><label id="birth">Birth</label></td> 
